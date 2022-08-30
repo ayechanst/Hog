@@ -1,0 +1,36 @@
+import random 
+
+
+def dice_roller():
+    roll = random.randint(1, 6)
+    return roll
+
+def choice(roll):
+    if roll == 1:
+        return 0
+    else:
+        return roll
+    return temp_total
+
+def tempt_total(choice()):
+    if choice == 0 
+    else roll again?
+
+
+
+
+print(temp_score(5))
+
+
+#Player Score
+player1 = 0
+player2 = 0
+player3 = 0
+player4 = 0
+
+
+    
+
+
+    
+    
