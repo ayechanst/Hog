@@ -1,1 +1,63 @@
+import random
+
+def dice_roller() -> int:
+    return random.randint(1,6)
+
+def create_players() -> list:
+    players = int(input('How many people are playing?: ')) 
+    list_of_players = []
+    score = 0
+    player = 1 
+    for i in range(players):
+        list_of_players.append((player, score))
+        player += 1
+    return list_of_players 
+
+#print(create_players())------------------------------------------------------------------------------------------------------------------
+
+def play_round(player) -> int: 
+    roll = dice_roller()
+    ready = input('Welcome are you ready to roll?: ')
+    if ready == 'n':
+        print('Why are you playing then?')
+    else: 
+        print('Let\'s get started with a', roll)
+    temp_total = roll
+    if roll > 1:
+        choice = input('Would you like to roll again?: ')
+        while choice == 'y':
+            roll = dice_roller()
+            if roll == 1:
+                print('You rolled 1')
+                temp_total = 1
+                break
+            else: 
+                print('You rolled a ', roll)
+                temp_total += roll
+            choice = input('Would you like to roll again?: ')
+    elif roll == 1:
+        print('You rolled a 1 and your turn is over.')
+    return temp_total 
+
+#print(play_round(3))------------------------------------------------------------------------------------------------------------------
+
+def update_score(index_of_player, updated_score, scores):
+    def update_if_player(tup):
+        index, value = tup
+        if index == index_of_player:
+            return updated_score
+        else:
+            return value 
+    return list(map(update_if_player, enumerate(scores)))
+
+
+print(update_score(2)) #------------------------------------------------------------------------------------------------------------------
+    
+# def determine_winner(copy1, score) -> int:
+#     selected_items = [item[1] for item in copy1]
+#     for value in selected_items:
+#         if value >= 100:
+#             return selected_items[i] # I want to return the index of the winner 
+#         else:
+#             return 0
 
